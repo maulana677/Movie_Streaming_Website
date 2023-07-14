@@ -11,7 +11,11 @@ class MovieController extends Controller
 {
     public function index()
     {
-        return view('admin.movies');
+        $movies = Movie::all();
+        
+        return view('admin.movies', [
+            'movies' => $movies
+        ]);
     }
 
     public function create()
