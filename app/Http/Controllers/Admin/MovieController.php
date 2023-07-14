@@ -12,7 +12,7 @@ class MovieController extends Controller
     public function index()
     {
         $movies = Movie::all();
-        
+
         return view('admin.movies', [
             'movies' => $movies
         ]);
@@ -21,6 +21,15 @@ class MovieController extends Controller
     public function create()
     {
         return view('admin.movies-create');
+    }
+
+    public function edit($id)
+    {
+        $movie = Movie::find($id);
+
+        return view('admin.movies-edit', [
+            'movie' => $movie
+        ]);
     }
 
     public function store(Request $request)
@@ -57,5 +66,10 @@ class MovieController extends Controller
         Movie::create($data);
 
         return redirect()->route('admin.movie')->with('success', 'Movie created successfully');
+    }
+
+    public function update(Request $request, $id)
+    {
+        
     }
 }
