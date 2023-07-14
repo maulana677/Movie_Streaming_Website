@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class MovieController extends Controller
 {
@@ -35,6 +36,16 @@ class MovieController extends Controller
             'duration' => 'required|string',
             'featured' => 'required'
         ]);
-        // dd($data);
+
+        $smallThumbnail = $request->small_thumbnail;
+        $largeThumbnail = $request->large_thumbnail;
+
+        $originalSmallThumbnailName = Str::random(10).$smallThumbnail->getClientOriginalName();
+        $originalLargeThumbnailName = Str::random(10).$largeThumbnail->getClientOriginalName();
+
+        $smallThumbnail->storeAs('public/thumbnail', $originalSmallThumbnailName);
+        $largeThumbnail->storeAs('public/thumbnail', $originalLargeThumbnailName);
+        
+        dd($originalSmallThumbnailName);
     }
 }
