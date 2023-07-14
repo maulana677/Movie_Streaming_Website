@@ -7,6 +7,15 @@
         <div class="col-md-12">
 
             {{-- Alert Here --}}
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
             <div class="card card-primary">
                 <div class="card-header">
@@ -14,7 +23,8 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form enctype="multipart/form-data" method="POST" action="">
+                <form enctype="multipart/form-data" method="POST" action="{{ route('admin.movie.store') }}">
+                    @csrf
                     <div class="card-body">
                         <div class="form-group">
                             <label for="title">Title</label>
