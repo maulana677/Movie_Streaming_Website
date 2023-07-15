@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\Admin\TransactionController;
 use Illuminate\Support\Facades\Route;
@@ -14,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('admin/login', [LoginController::class, 'index'])->name('admin.login');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::view('/', 'admin.dashboard')->name('admin.dashboard');
