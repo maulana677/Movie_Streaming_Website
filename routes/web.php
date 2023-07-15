@@ -40,6 +40,4 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function () 
 Route::view('/', 'index');
 
 Route::get('/register', [RegisterController::class, 'index'])->name('member.register');
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::post('/register', [RegisterController::class, 'store'])->name('member.register.store');
