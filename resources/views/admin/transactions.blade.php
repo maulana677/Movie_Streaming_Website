@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <table id="example2" class="table table-bordered table-hover">
+                            <table id="transaction" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>Id</th>
@@ -24,14 +24,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+                                    @foreach ($transactions as $transaction)
+                                        <tr>
+                                            <td>{{ $transaction->id }}</td>
+                                            <td>{{ $transaction->package->name }}</td>
+                                            <td>{{ $transaction->user->name }}</td>
+                                            <td>{{ $transaction->amount }}</td>
+                                            <td>{{ $transaction->transaction_code }}</td>
+                                            <td>{{ $transaction->status }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -40,4 +42,10 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script>
+        $('#transaction').DataTable();
+    </script>
 @endsection
