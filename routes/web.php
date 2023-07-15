@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\Member\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::view('/', 'index');
 
 Route::get('admin/login', [LoginController::class, 'index'])->name('admin.login');
 Route::post('admin/login', [LoginController::class, 'authenticate'])->name('admin.login.auth');
@@ -37,6 +37,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function () 
     });
 });
 
+Route::view('/', 'index');
+
+Route::get('/register', [RegisterController::class, 'index'])->name('member.register');
 // Route::get('/', function () {
 //     return view('welcome');
 // });
