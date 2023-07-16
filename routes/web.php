@@ -7,6 +7,7 @@ use App\Http\Controllers\Member\DashboardController;
 use App\Http\Controllers\Member\RegisterController;
 use App\Http\Controllers\Member\LoginController as MemberLoginController;
 use App\Http\Controllers\Member\MovieController as MemberMovieController;
+use App\Http\Controllers\Member\PricingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,6 +50,8 @@ Route::post('/register', [RegisterController::class, 'store'])->name('member.reg
 //login member
 Route::get('/login', [MemberLoginController::class, 'index'])->name('member.login');
 Route::post('/login', [MemberLoginController::class, 'auth'])->name('member.login.auth');
+
+Route::get('/pricing', [PricingController::class, 'index'])->name('pricing');
 
 //dashboard member
 Route::group(['prefix' => 'member', 'middleware' => ['auth']], function() {
