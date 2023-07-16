@@ -2,9 +2,9 @@
 <div class="flex justify-between items-center">
     <div class="flex flex-col gap-[10px]">
         <div class="font-bold text-[32px] text-white">
-            Watch Today
+            @yield('title')
         </div>
-        <p class="mb-0 text-stream-gray text-base">Our selected movies for your mood</p>
+        <p class="mb-0 text-stream-gray text-base">@yield('title-description')</p>
     </div>
     <div class="flex items-center gap-[26px]">
         <span class="text-white text-base">Welcome, Miranda Nur</span>
