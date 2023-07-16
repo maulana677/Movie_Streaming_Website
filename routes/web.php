@@ -51,7 +51,7 @@ Route::get('/login', [MemberLoginController::class, 'index'])->name('member.logi
 Route::post('/login', [MemberLoginController::class, 'auth'])->name('member.login.auth');
 
 //dashboard member
-Route::group(['prefix' => 'member'], function() {
+Route::group(['prefix' => 'member', 'middleware' => ['auth']], function() {
     Route::get('/', [DashboardController::class, 'index'])->name('member.dashboard');
 
     //detail movies
