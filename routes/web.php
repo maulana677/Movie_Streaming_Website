@@ -40,7 +40,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function () 
 
 Route::view('/', 'index');
 
+//register member
 Route::get('/register', [RegisterController::class, 'index'])->name('member.register');
 Route::post('/register', [RegisterController::class, 'store'])->name('member.register.store');
 
+//login member
 Route::get('/login', [MemberLoginController::class, 'index'])->name('member.login');
+Route::post('/login', [MemberLoginController::class, 'auth'])->name('member.login.auth');
