@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Member\DashboardController;
 use App\Http\Controllers\Member\RegisterController;
 use App\Http\Controllers\Member\LoginController as MemberLoginController;
+use App\Http\Controllers\Member\MovieController as MemberMovieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,4 +53,7 @@ Route::post('/login', [MemberLoginController::class, 'auth'])->name('member.logi
 //dashboard member
 Route::group(['prefix' => 'member'], function() {
     Route::get('/', [DashboardController::class, 'index'])->name('member.dashboard');
+
+    //detail movies
+    Route::get('movie/{id}', [MemberMovieController::class, 'show'])->name('member.movie.detail');
 });

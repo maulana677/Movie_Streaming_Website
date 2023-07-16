@@ -28,7 +28,7 @@
                         <img src="{{ asset('stream/assets/images/ic_play.svg') }}" class="" width="80"
                             alt="">
                     </div>
-                    <a href="#" class="inset-0 absolute z-50"></a>
+                    <a href="{{ route('member.movie.detail', $movie->id) }}" class="inset-0 absolute z-50"></a>
                 </div>
             @endforeach
         </div>
@@ -89,7 +89,8 @@
                 <div
                     class="absolute top-1/2 left-1/2 -translate-y-[500px] group-hover:-translate-y-1/2
                 -translate-x-1/2 z-20 transition ease-in-out duration-500">
-                    <img src="{{ asset('stream/assets/images/ic_play.svg') }}" class="" width="80" alt="">
+                    <img src="{{ asset('stream/assets/images/ic_play.svg') }}" class="" width="80"
+                        alt="">
                 </div>
                 <a href="watching.html" class="inset-0 absolute z-50"></a>
             </div>
