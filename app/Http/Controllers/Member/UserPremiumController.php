@@ -23,4 +23,11 @@ class UserPremiumController extends Controller
             'user_premium' => $userPremium
         ]);
     }
+
+    public function destroy($id)
+    {
+        UserPremium::destroy($id);
+        
+        return redirect()->route('member.dashboard');
+    }
 }

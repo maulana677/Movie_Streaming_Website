@@ -64,6 +64,8 @@ Route::group(['prefix' => 'member', 'middleware' => ['auth']], function() {
     Route::post('transaction', [MemberTransactionController::class, 'store'])->name('member.transaction.store');
 
     Route::get('subscription', [UserPremiumController::class, 'index'])->name('member.user-premium.index');
+    Route::delete('subscription/{id}', [UserPremiumController::class, 'destroy'])->name('member.user-premium.destroy');
+
 
     //detail movies
     Route::get('movie/{id}', [MemberMovieController::class, 'show'])->name('member.movie.detail');
